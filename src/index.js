@@ -10,7 +10,7 @@ const encode = input => [...input]
 
 const decode = input => input
     .replace(/((\.?\-?)[0-9]+)\1*/g, x => Array(+Array.from(x).slice(1).join(''))
-            .fill(Array.from(x).shift() === '.' ? 1 : 0).join('')
+            .fill(x[0] === '.' ? 1 : 0).join('')
     )
     .replace(/(([01])\2*)/g, x => x.length === 1 ? '.' : '' + Math.ceil(-(1 - x.length / 2)))
     .match(/(\d+)\.(\d+)/g)
